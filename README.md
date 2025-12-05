@@ -119,3 +119,156 @@ tfidf = TfidfVectorizer(
     max_df=0.9,
     stop_words="english",
 )
+```
+
+This lets us capture both single words and short phrases like:
+- *“big pharma”*, *“forced vaccinations”*, *“vaccine passports”*,
+- *“end pandemic”*, *“vaccine safety”*, *“healthcare workers”*, etc.
+
+The notebook also shows how to extract and interpret the most informative n‑grams per stance using a linear model.
+
+### 4.2 Models compared
+
+On the tweet data we train and evaluate several standard classifiers:
+
+- `LogisticRegression` (multinomial)
+- `LinearSVC` (linear SVM)
+- `MultinomialNB`
+- `MLPClassifier` (small feedforward neural net)
+- `RandomForestClassifier`
+- `GradientBoostingClassifier`
+
+For each model we:
+- Split train/test with stratification,
+- Train on TF–IDF features,
+- Report:
+  - `accuracy`
+  - `macro F1` (to balance the three classes),
+  - `classification_report`,
+  - Confusion matrix (including a normalized heatmap with values annotated),
+  - A binary ROC/AUC view for *"anti" vs rest* to illustrate ROC tooling.
+
+Typical results (on the synthetic HF dataset) show:
+- All models achieving macro F1 ≈ 0.97–0.99,
+- A small MLP achieving the best scores (accuracy ≈ 0.99, macro F1 ≈ 0.989),
+- ROC AUC for "anti" vs rest ≈ 1.0, reflecting the cleanliness of the dataset.
+
+The notebook explicitly notes that such strong performance is partly due to:
+- The synthetic, LLM‑generated nature of the tweets (cleaner language, clearer class boundaries),
+- The relatively small size of the dataset.
+
+### 4.3 Interpretability: n‑grams from a linear model
+
+Even though the MLP is chosen as the best performing model, we still fit a logistic regression model and use it to:
+- Inspect the top 2–4‑word n‑grams per stance, by coefficient weight.
+- Provide a human‑readable summary of which phrases are most associated with pro/anti/neutral stances.
+
+This demonstrates how:
+- A non‑linear model can be used for final predictions, while
+- A linear model serves as an interpretability lens into the discourse.
+
+## 5. Cross‑platform transfer: applying the model to Reddit
+
+Once the best model is selected (MLP in this run), we:
+- Load Reddit posts from reddit_posts.
+- Transform full_text using the same TF–IDF vectorizer.
+- Use the trained Twitter stance model to predict predicted_stance for each Reddit post.
+- Write the updated predictions back to the reddit_posts table.
+
+We then explore:
+- Overall predicted stance counts (e.g., ~934 neutral, 567 pro, 480 anti in one run).
+- How those predictions break down by subreddit and keyword.
+
+Visualizations include:
+- Stacked bar charts of keyword frequencies:
+ - Tweets: keywords stacked by stance.
+ - Reddit: keywords stacked by subreddit.
+- Normalized versions of these charts:
+ - For each keyword, the proportion coming from each stance or subreddit,
+ - For each stance, the proportion of posts coming from each subreddit.
+
+We also create a plot with:
+- 3 bars (neutral / pro / anti),
+- Each bar showing a normalized stack of subreddits contributing to that stance,
+- Optionally excluding high‑volume subs like r/Coronavirus and r/COVID19 for a more balanced view.
+
+## 6. How to run this notebook
+### 6.1 Requirements
+- Python 3.9+ (earlier 3.x may work)
+- Jupyter (or JupyterLab)
+- Recommended packages (example requirements.txt):
+```Python
+pandas
+numpy
+matplotlib
+scikit-learn
+datasets
+praw
+```
+
+### 6.2 Reddit credentials (reddit_info.txt)
+
+To pull Reddit posts, you’ll need a Reddit app and a small local config file.
+
+- Create a Reddit “script” app at https://www.reddit.com/prefs/apps
+- Create reddit_info.txt (not checked into git; add it to .gitignore) with:
+```
+client_id,client_secret,user_agent,user_name,password
+YOUR_CLIENT_ID,YOUR_CLIENT_SECRET,my_vax_pipeline/0.1 by u_yourusername,reddit_username,reddit_password
+```
+- The notebook reads this file in init_reddit_client() and initializes praw.Reddit(...).
+
+### 6.3 Steps
+
+1. Clone the repo:
+```
+git clone <this-repo-url>
+cd <this-repo-directory>
+```
+
+2. (Recommended) Create and activate a virtual environment.
+
+3. Install dependencies
+
+4. Start Jupyter
+
+5. Open vaccine_pipeline.ipynb and run the cells top‑to‑bottom.
+
+On the first run, the Hugging Face dataset will be downloaded automatically via the `datasets` library.
+
+## 7. Limitations, ethics, and appropriate use
+
+- Synthetic training data:
+The tweet data comes from a synthetic HF dataset, not live Twitter. Performance numbers and language patterns may not generalize to real‑world, adversarial contexts.
+
+- Sampling and coverage:
+The Reddit sample is limited to a small set of subreddits and a keyword filter; it should be seen as a toy corpus for demonstration, not an authoritative view of online vaccine discourse.
+
+- Model scope:
+The stance labels are applied only at the text level and are intended as a triage signal to explore narratives and communities. They are not suitable for content moderation, user‑level judgments, or any form of medical advice.
+
+- No personal targeting:
+This project is about understanding patterns and narratives in aggregate. It should not be used to target or profile individuals.
+
+- API terms:
+When running the notebook yourself, please respect Reddit’s API terms and limits and avoid scraping at unnecessary scale.
+
+## 8. What this demonstrates (for reviewers)
+
+This repository is intended to demonstrate the following skills:
+
+- ETL and data engineering
+ - Ingesting and cleaning text data from multiple sources (Hugging Face, Reddit API).
+ - Designing and populating a relational schema in SQLite.
+- Using SQL + pandas for inspection and analysis.
+ - Supervised & unsupervised modeling
+ - Comparing several classic ML models (logistic regression, linear SVM, Naive Bayes, MLP, random forests, boosting).
+ - Evaluating using accuracy, macro F1, confusion matrices, ROC/AUC.
+ - Using topic‑like and n‑gram analyses to explore narratives.
+- NLP and narrative analysis
+ - N‑gram‑based TF–IDF representation up to 4‑grams.
+ - Keyword‑based views of vaccine discourse across stances and communities.
+ - Simple duplicate / repeated phrase heuristics as toy signals of templated messaging.
+- Communication and caveats
+ - Explicit discussion of data limitations (synthetic tweets, sample size, coverage).
+ - Clear visualizations and narrative commentary aimed at a mixed technical/legal audience, which is crucial in investigative and public‑interest contexts.
