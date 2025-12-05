@@ -1,0 +1,2 @@
+client_id,client_secret,user_agent,user_name,password
+string,string,title_of_app,your_username,your_password
