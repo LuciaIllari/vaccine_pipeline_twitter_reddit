@@ -19,7 +19,7 @@ The code is organized as a single Jupyter notebook:
 
 which can be run top‑to‑bottom to reproduce the analysis.
 
-Originally, this notebook was developed as a **code sample for an applied data scientist role in a public‑sector investigations context**, where data is used to support legal cases and policy work (e.g., anomaly detection, repeated narratives, high‑volume text triage). :contentReference[oaicite:0]{index=0}  
+Originally, this notebook was developed as a **code sample for an applied data scientist role in a public‑sector investigations context**, where data is used to support legal cases and policy work (e.g., anomaly detection, repeated narratives, high‑volume text triage). 
 
 ---
 
