@@ -1,0 +1,7 @@
+reddit_info.txt
+*.db
+keyword_precision_labels.csv
+keyword_precision_results.csv
+labels_cleared_by_fix.csv
+.ipynb_checkpoints/
+__pycache__/
