@@ -1,0 +1,79 @@
+platform,sites,on_popularity_list,on_alt_tech_list,architecture,function,notes
+Reddit,reddit.com redd.it,yes,no,centralized,forum/link aggregator,"core platform; its links are in post_links, not post_web_links"
+YouTube,youtube.com youtu.be,yes,no,centralized,video,
+Facebook,facebook.com fb.com fb.watch fb.me,yes,no,centralized,social network,fb.com also covers Meta's corporate pages (about.fb.com)
+Messenger,messenger.com m.me,yes,no,centralized,messaging,
+WhatsApp,whatsapp.com wa.me,yes,no,centralized,messaging,
+Instagram,instagram.com instagr.am,yes,no,centralized,image sharing,
+TikTok,tiktok.com,yes,no,centralized,short video,
+WeChat,wechat.com weixin.qq.com,yes,no,centralized,messaging,
+Telegram,t.me telegram.me telegram.org telegra.ph,yes,table,centralized,messaging/broadcast,on both lists; the alt-tech article also cites it as ideologically neutral
+LinkedIn,linkedin.com lnkd.in,yes,no,centralized,professional network,
+Snapchat,snapchat.com,yes,no,centralized,messaging,
+Weibo,weibo.com weibo.cn,yes,no,centralized,microblogging,
+Pinterest,pinterest.com pin.it,yes,no,centralized,image sharing,
+X/Twitter,twitter.com x.com t.co twimg.com nitter.net fxtwitter.com vxtwitter.com fixupx.com threadreaderapp.com,yes,no,centralized,microblogging,"t.co is X's link shortener; nitter, fxtwitter, fixupx and Thread Reader show X posts"
+Threads,threads.net threads.com,yes,no,centralized,microblogging,partly connected to the fediverse
+Quora,quora.com,yes,no,centralized,Q&A,
+Bilibili,bilibili.com,yes,no,centralized,video,
+Discord,discord.com discord.gg discordapp.com discordapp.net,yes,text only,centralized,chat communities,"alt-tech article: ideologically neutral, later mainstream"
+Twitch,twitch.tv,yes,no,centralized,livestreaming,
+Tumblr,tumblr.com,yes,no,centralized,microblogging,
+Line,line.me,yes,no,centralized,messaging,
+Viber,viber.com,yes,no,centralized,messaging,
+Signal,signal.org signal.me,yes,no,centralized,messaging,
+Gab,gab.com gab.ai,no,table,centralized,microblogging,runs on a fork of Mastodon's software but outside the fediverse
+Gettr,gettr.com,no,table,centralized,microblogging,
+Parler,parler.com,no,table,centralized,microblogging,
+Truth Social,truthsocial.com,no,table,centralized,microblogging,runs on Mastodon's software
+BitChute,bitchute.com,no,table,peer-to-peer,video,used WebTorrent to share video between viewers at launch
+Odysee,odysee.com lbry.tv,no,table,blockchain,video,built on the LBRY protocol
+Rumble,rumble.com,no,table,centralized,video,
+DLive,dlive.tv,no,table,centralized,livestreaming,
+Triller,triller.co,no,table,centralized,short video,
+DTube,d.tube dtube.video,no,table,check,video,
+TokenTube,tokentube.net,no,table,check,video,
+PewTube,pewtube.com,no,table,check,video,
+GiveSendGo,givesendgo.com,no,table,centralized,crowdfunding,
+SubscribeStar,subscribestar.com subscribestar.adult,no,table,centralized,crowdfunding,
+MeWe,mewe.com,no,table,centralized,social network,
+Minds,minds.com,no,table,centralized,social network,
+Thinkspot,thinkspot.com,no,table,centralized,social network,
+Patriots.win,patriots.win,no,table,centralized,forum/link aggregator,
+Voat,voat.co,no,table,centralized,forum/link aggregator,closed in 2020
+CloutHub,clouthub.com,no,table,centralized,social network,
+8kun,8kun.top 8ch.net 8chan.moe,no,table,centralized,imageboard,
+4chan,4chan.org 4channel.org 4cdn.org,no,text only,centralized,imageboard,"named in the alt-tech article's text, not its table; predates the term"
+Infogalactic,infogalactic.com,no,table,centralized,wiki encyclopedia,
+Metapedia,metapedia.org,no,table,centralized,wiki encyclopedia,
+Grokipedia,grokipedia.com,no,table,centralized,wiki encyclopedia,
+Mastodon,mastodon.social mastodon.online,no,no,federated (ActivityPub),microblogging,only the 2 largest servers listed; posts on other servers are missed
+Bluesky,bsky.app bsky.social,no,no,federated (AT Protocol),microblogging,
+Nostr,primal.net damus.io snort.social iris.to,no,no,relay-based,microblogging,only the best-known apps listed
+Lemmy,lemmy.world lemmy.ml,no,no,federated (ActivityPub),forum/link aggregator,only the 2 largest servers listed
+Pixelfed,pixelfed.social,no,no,federated (ActivityPub),image sharing,only the largest server listed
+PeerTube,joinpeertube.org,no,no,federated (ActivityPub),video,each server has its own address; only the project site listed
+Loops,loops.video,no,no,federated (ActivityPub),short video,
+Cara,cara.app,no,no,centralized,image sharing,artist platform that bans AI-generated images
+Substack,substack.com substackcdn.com,no,no,centralized,newsletter/blog,
+Medium,medium.com,no,no,centralized,newsletter/blog,
+WordPress.com,wordpress.com,no,no,centralized,newsletter/blog,hosted blogs only; self-hosted WordPress sites have their own addresses
+Blogger,blogspot.com,no,no,centralized,newsletter/blog,
+Locals,locals.com,no,no,centralized,social network,creator communities
+Patreon,patreon.com,no,no,centralized,crowdfunding,
+Ko-fi,ko-fi.com,no,no,centralized,crowdfunding,
+GoFundMe,gofundme.com,no,no,centralized,crowdfunding,
+Imgur,imgur.com,no,no,centralized,image/gif hosting,
+Gfycat,gfycat.com,no,no,centralized,image/gif hosting,closed in 2023
+Giphy,giphy.com,no,no,centralized,image/gif hosting,
+Streamable,streamable.com,no,no,centralized,video,
+Vimeo,vimeo.com,no,no,centralized,video,
+Dailymotion,dailymotion.com,no,no,centralized,video,
+Kick,kick.com,no,no,centralized,livestreaming,
+Brighteon,brighteon.com,no,no,centralized,video,
+Banned.video,banned.video,no,no,centralized,video,
+Brand New Tube,brandnewtube.com,no,no,centralized,video,
+Rokfin,rokfin.com,no,no,centralized,video,
+SaidIt,saidit.net,no,no,centralized,forum/link aggregator,Reddit-like site
+Spotify,spotify.com,no,no,centralized,podcast/audio,includes music links
+Apple Podcasts,podcasts.apple.com,no,no,centralized,podcast/audio,"matched on the host, since apple.com is mostly not podcasts"
